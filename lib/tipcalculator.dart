@@ -4,8 +4,7 @@ class TipCalculator extends StatefulWidget {
   const TipCalculator({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _TipCalculatorState createState() => _TipCalculatorState();
+  State<TipCalculator> createState() => _TipCalculatorState();
 }
 
 class _TipCalculatorState extends State<TipCalculator> {
@@ -85,13 +84,12 @@ class _TipCalculatorState extends State<TipCalculator> {
       double tipAmount = _billAmount * (_tipPercentage / 100);
       double totalAmount = _billAmount + tipAmount;
 
-      // Display the result (you can show it in a dialog or a new screen)
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
           title: const Text('Total Amount'),
-          content: Text(
-              'Total amount to be paid: \$${totalAmount.toStringAsFixed(2)}'),
+          content: Text('Total Tip Amount Rs: ${tipAmount.toStringAsFixed(2)} '
+              ' Total amount to be paid: Rs:${totalAmount.toStringAsFixed(2)}'),
           actions: [
             ElevatedButton(
               onPressed: () => Navigator.pop(context),
